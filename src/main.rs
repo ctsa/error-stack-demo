@@ -20,7 +20,7 @@ fn parse_card_numbers(card: &str) -> Result<Vec<u32>, ParsePaymentInfoError> {
         .into_iter()
         .map(|s| {
             s.parse()
-            .report()
+            .into_report()
             .attach_printable_lazy(|| {
                 format!("{s:?} could not be parsed as u32")
             })
